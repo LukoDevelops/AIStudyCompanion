@@ -1,0 +1,1282 @@
+1
+00:00:02,268 --> 00:00:03,770
+In 1972,
+
+2
+00:00:03,770 --> 00:00:06,573
+the first Landsat satellite
+was launched into orbit,
+
+3
+00:00:07,107 --> 00:00:10,510
+ushering in a revolutionary
+new era of earth observation.
+
+4
+00:00:11,211 --> 00:00:13,780
+More than 50 years
+and eight satellites later,
+
+5
+00:00:14,080 --> 00:00:15,815
+the Landsat program
+has collected
+
+6
+00:00:15,815 --> 00:00:17,417
+an immense amount of data
+
+7
+00:00:17,417 --> 00:00:19,252
+that's proven
+an invaluable resource
+
+8
+00:00:19,252 --> 00:00:20,086
+to scientists
+
+9
+00:00:20,086 --> 00:00:22,689
+studying the complexities
+of our planet's surface.
+
+10
+00:00:23,223 --> 00:00:24,290
+The abundance of data
+
+11
+00:00:24,290 --> 00:00:26,493
+provides insights,
+but it can also pose
+
+12
+00:00:26,493 --> 00:00:27,594
+a daunting challenge
+
+13
+00:00:27,594 --> 00:00:30,363
+for researchers to extract
+and analyze information.
+
+14
+00:00:30,697 --> 00:00:33,166
+Landsat 8 and 9 alone each gather
+
+15
+00:00:33,166 --> 00:00:35,502
+close to a terabyte of data per day.
+
+16
+00:00:36,236 --> 00:00:38,471
+Enter Artificial Intelligence.
+
+17
+00:00:38,471 --> 00:00:41,341
+AI's popularity has taken off
+in recent years
+
+18
+00:00:41,641 --> 00:00:42,475
+with new tools
+
+19
+00:00:42,475 --> 00:00:45,845
+that allow users to generate
+imagery, transcribe audio,
+
+20
+00:00:46,046 --> 00:00:48,715
+and even compose music
+at the click of a button.
+
+21
+00:00:49,549 --> 00:00:51,818
+This is nothing new
+for the scientific community,
+
+22
+00:00:51,818 --> 00:00:53,486
+however, which have been using
+
+23
+00:00:53,486 --> 00:00:55,889
+artificial intelligence
+methods for decades.
+
+24
+00:00:56,356 --> 00:00:56,856
+When it comes
+
+25
+00:00:56,856 --> 00:00:59,926
+to working with Landsat data,
+one of the most popular A.I.
+
+26
+00:00:59,926 --> 00:01:01,861
+tools is machine learning.
+
+27
+00:01:01,861 --> 00:01:03,930
+Machine learning is a subset of AI
+
+28
+00:01:04,130 --> 00:01:04,764
+that can train
+
+29
+00:01:04,764 --> 00:01:05,832
+computer programs
+
+30
+00:01:05,832 --> 00:01:08,935
+to recognize patterns
+and analyze imagery, skills
+
+31
+00:01:08,935 --> 00:01:10,503
+that prove
+exceptionally useful
+
+32
+00:01:10,503 --> 00:01:12,806
+in the application of Landsat data.
+
+33
+00:01:12,806 --> 00:01:14,841
+In fact, when combined with Landsat
+
+34
+00:01:14,841 --> 00:01:16,609
+machine learning models have led
+
+35
+00:01:16,609 --> 00:01:18,545
+to a number of advances across a variety
+
+36
+00:01:18,545 --> 00:01:20,013
+of scientific fields,
+
+37
+00:01:20,013 --> 00:01:21,347
+granting further insight
+
+38
+00:01:21,347 --> 00:01:24,050
+into our planet's
+past, present and future.
+
+39
+00:01:24,851 --> 00:01:26,653
+One of the major challenges
+of working
+
+40
+00:01:26,653 --> 00:01:27,654
+with satellite imagery
+
+41
+00:01:27,654 --> 00:01:30,924
+like Landsat can actually be
+found up in the sky,
+
+42
+00:01:31,524 --> 00:01:32,559
+clouds
+
+43
+00:01:32,559 --> 00:01:34,394
+obscuring Earth's surface
+and casting
+
+44
+00:01:34,394 --> 00:01:36,396
+shadows
+that reduce visibility.
+
+45
+00:01:36,396 --> 00:01:38,431
+A cloudy day
+can be a downright nuisance
+
+46
+00:01:38,431 --> 00:01:41,000
+when it comes to analyzing
+certain satellite imagery.
+
+47
+00:01:41,434 --> 00:01:44,170
+Pinpointing these clouds
+helps to improve data quality
+
+48
+00:01:44,170 --> 00:01:46,106
+by removing
+noise and artifacts,
+
+49
+00:01:46,106 --> 00:01:48,775
+making it easier
+to detect changes over time.
+
+50
+00:01:49,309 --> 00:01:50,910
+But while
+accurate cloud detection
+
+51
+00:01:50,910 --> 00:01:53,246
+across a massive dataset
+such as Landsat
+
+52
+00:01:53,313 --> 00:01:54,948
+would be a tall
+task for any one
+
+53
+00:01:54,948 --> 00:01:57,417
+human, it's a piece of cake
+for a computer.
+
+54
+00:01:57,951 --> 00:02:01,287
+In 2019, researchers
+from Oregon State University
+
+55
+00:02:01,387 --> 00:02:03,256
+constructed
+a deep convolutional
+
+56
+00:02:03,256 --> 00:02:04,958
+neural network model
+
+57
+00:02:04,958 --> 00:02:06,759
+a machine learning tool
+that excels
+
+58
+00:02:06,759 --> 00:02:08,928
+at recognizing patterns
+in imagery.
+
+59
+00:02:08,928 --> 00:02:11,231
+With the help of existing
+Landsat 8 data,
+
+60
+00:02:11,464 --> 00:02:12,732
+they taught their neural network
+
+61
+00:02:12,732 --> 00:02:15,335
+to automatically detect clouds
+in satellite imagery
+
+62
+00:02:15,401 --> 00:02:18,872
+with an amazing 97.1%
+accuracy rate.
+
+63
+00:02:19,672 --> 00:02:21,508
+The researchers
+believe in the future
+
+64
+00:02:21,508 --> 00:02:22,909
+cloud detection algorithms
+
+65
+00:02:22,909 --> 00:02:24,777
+like this one
+could even be harnessed
+
+66
+00:02:24,777 --> 00:02:28,348
+to identify clouds across the
+entire Landsat 8 archive.
+
+67
+00:02:30,683 --> 00:02:32,485
+Machine learning's
+benefits don't just end
+
+68
+00:02:32,485 --> 00:02:34,687
+when the clouds
+clear - down on the ground
+
+69
+00:02:34,721 --> 00:02:36,656
+there's plenty
+to keep an eye on.
+
+70
+00:02:36,656 --> 00:02:38,791
+Our planet's one
+constant is change.
+
+71
+00:02:39,192 --> 00:02:39,893
+Earth's surface
+
+72
+00:02:39,893 --> 00:02:43,329
+is perpetually evolving due
+to human and natural forces.
+
+73
+00:02:43,997 --> 00:02:46,366
+Landsat its ability
+to track these changes over
+
+74
+00:02:46,366 --> 00:02:47,333
+time has proven
+
+75
+00:02:47,333 --> 00:02:49,869
+to be an incredible asset
+to the scientific community,
+
+76
+00:02:50,470 --> 00:02:53,206
+especially when used in
+concert with machine learning.
+
+77
+00:02:53,840 --> 00:02:56,643
+For example, researchers
+from the University of Texas
+
+78
+00:02:56,643 --> 00:02:59,646
+at Austin used Landsat data
+with a random force
+
+79
+00:02:59,646 --> 00:03:01,981
+classifier, yet
+another type of machine
+
+80
+00:03:01,981 --> 00:03:03,249
+learning tool that combines
+
+81
+00:03:03,249 --> 00:03:05,552
+multiple decision trees
+to make predictions.
+
+82
+00:03:06,252 --> 00:03:08,521
+Using data from Landsats 4
+through 8,
+
+83
+00:03:08,821 --> 00:03:11,524
+They used the classifier
+to map changes in land use
+
+84
+00:03:11,524 --> 00:03:14,661
+in northwestern Belize
+from the 1980s to the present.
+
+85
+00:03:16,029 --> 00:03:18,464
+The results showed that
+tropical forests and wetlands
+
+86
+00:03:18,464 --> 00:03:20,767
+that don't have
+a designated protection status
+
+87
+00:03:21,000 --> 00:03:23,836
+are increasingly vulnerable
+to deforestation due
+
+88
+00:03:23,836 --> 00:03:26,406
+to Belize's expanding
+industrial agriculture.
+
+89
+00:03:27,040 --> 00:03:28,942
+By combining
+these new advances in machine
+
+90
+00:03:28,942 --> 00:03:29,943
+learning with Landsat
+
+91
+00:03:29,943 --> 00:03:31,911
+to capacity
+for looking back in time,
+
+92
+00:03:31,911 --> 00:03:33,680
+researchers
+believe in the future,
+
+93
+00:03:33,680 --> 00:03:35,248
+this approach would make it
+possible
+
+94
+00:03:35,248 --> 00:03:38,251
+to provide robust estimates
+of deforestation in Belize.
+
+95
+00:03:41,454 --> 00:03:44,190
+As climate change drives our
+planet's temperatures higher,
+
+96
+00:03:44,457 --> 00:03:44,991
+so does the
+
+97
+00:03:44,991 --> 00:03:48,428
+prevalence of extreme events
+that put ecosystems at risk.
+
+98
+00:03:48,995 --> 00:03:49,996
+Wildfires across
+
+99
+00:03:49,996 --> 00:03:52,865
+the globe have increased
+in frequency and intensity.
+
+100
+00:03:53,199 --> 00:03:56,002
+Australia is no stranger
+to these types of fires.
+
+101
+00:03:56,202 --> 00:03:58,771
+The 2019-2020 bushfire season
+
+102
+00:03:58,771 --> 00:04:00,840
+was one of the most
+destructive on record.
+
+103
+00:04:01,341 --> 00:04:03,142
+Using satellite imagery
+to pinpoint
+
+104
+00:04:03,142 --> 00:04:05,044
+when and where
+wildfires are burning
+
+105
+00:04:05,044 --> 00:04:06,145
+could be an important tool
+
+106
+00:04:06,145 --> 00:04:08,281
+for assessing damage
+in future fires.
+
+107
+00:04:09,349 --> 00:04:11,217
+Researchers
+at the University of Western
+
+108
+00:04:11,217 --> 00:04:13,019
+Australia
+have developed a new machine
+
+109
+00:04:13,019 --> 00:04:15,521
+learning approach with
+the help of Landsat 8 data
+
+110
+00:04:16,022 --> 00:04:19,158
+to generate a 16-year
+history of wildfire severity
+
+111
+00:04:19,158 --> 00:04:21,761
+in the eucalyptus forests
+of the continent's southwest.
+
+112
+00:04:22,762 --> 00:04:26,132
+They fed data gathered by
+satellites, including Landsat 8
+
+113
+00:04:26,132 --> 00:04:29,802
+from 2005 to 2020
+into a supervised classifier
+
+114
+00:04:29,869 --> 00:04:31,571
+a type of machine
+learning algorithm
+
+115
+00:04:31,571 --> 00:04:32,772
+that learns to classify
+
+116
+00:04:32,772 --> 00:04:35,808
+data based on labeled examples
+provided during training.
+
+117
+00:04:36,776 --> 00:04:39,245
+By teaching the algorithm
+with examples from the past.
+
+118
+00:04:39,279 --> 00:04:41,481
+This method of machine
+learning could be used
+
+119
+00:04:41,481 --> 00:04:43,683
+to predict the severity
+of future wildfires.
+
+120
+00:04:43,950 --> 00:04:44,884
+Critical data
+
+121
+00:04:44,884 --> 00:04:47,053
+that could aid in the
+management and conservation
+
+122
+00:04:47,053 --> 00:04:49,722
+of Australia's
+extensive eucalyptus forests.
+
+123
+00:04:50,690 --> 00:04:52,992
+These are just a few examples
+of the remarkable ways
+
+124
+00:04:52,992 --> 00:04:55,728
+Landsat data and machine
+learning tools are unlocking
+
+125
+00:04:55,728 --> 00:04:57,964
+new possibilities
+for understanding our planet.
+
+126
+00:04:58,731 --> 00:05:00,233
+This combination
+has already led
+
+127
+00:05:00,233 --> 00:05:02,235
+to significant advances
+in agriculture,
+
+128
+00:05:02,268 --> 00:05:04,570
+forestry,
+urban planning, climate change
+
+129
+00:05:04,570 --> 00:05:06,372
+research and more
+
+130
+00:05:06,372 --> 00:05:08,908
+as more satellite data
+becomes available and machine
+
+131
+00:05:08,908 --> 00:05:11,110
+learning techniques
+continue to improve.
+
+132
+00:05:11,110 --> 00:05:12,445
+So too will the potential
+
+133
+00:05:12,445 --> 00:05:14,580
+for applications
+in additional fields
+
+134
+00:05:14,580 --> 00:05:17,050
+critical to the health
+of our planet's ecosystems.
+
+135
+00:05:17,517 --> 00:05:18,084
+In tackling
+
+136
+00:05:18,084 --> 00:05:20,386
+the complex challenges
+of today and tomorrow,
+
+137
+00:05:20,553 --> 00:05:22,622
+the blending of Landsat data
+and machine
+
+138
+00:05:22,622 --> 00:05:24,357
+learning will be vital to help
+people
+
+139
+00:05:24,357 --> 00:05:26,626
+make better decisions
+to protect our planet.
+
+140
+00:08:30,243 --> 00:08:31,878
+In 1972, the
+
+141
+00:08:31,878 --> 00:08:34,780
+Landsat mission launched its
+first satellite into orbit,
+
+142
+00:08:35,147 --> 00:08:37,950
+ushering in a revolutionary
+new era of earth
+
+143
+00:08:37,950 --> 00:08:39,619
+observation.
+
+144
+00:08:42,121 --> 00:08:43,623
+The Landsat mission
+has collected
+
+145
+00:08:43,623 --> 00:08:45,091
+an immense amount of data
+
+146
+00:08:45,091 --> 00:08:45,625
+that's proven
+
+147
+00:08:45,625 --> 00:08:47,627
+an invaluable resource
+to scientists
+
+148
+00:08:47,627 --> 00:08:50,096
+studying the complexities
+of our planet's surface.
+
+149
+00:08:50,563 --> 00:08:53,266
+The incredible abundance
+of data provides insights,
+
+150
+00:08:53,466 --> 00:08:55,401
+but it can also pose
+a daunting challenge
+
+151
+00:08:55,401 --> 00:08:58,170
+for researchers to extract
+and analyze information.
+
+152
+00:08:58,738 --> 00:09:01,307
+Landsat eight and nine alone,
+each gather
+
+153
+00:09:01,307 --> 00:09:03,543
+close to a terabyte of data
+per day.
+
+154
+00:09:04,310 --> 00:09:08,214
+Enter artificial intelligence
+
+155
+00:09:09,649 --> 00:09:10,516
+with new tools
+
+156
+00:09:10,516 --> 00:09:13,653
+that allow users to generate
+imagery, transcribe audio,
+
+157
+00:09:13,786 --> 00:09:16,656
+and even compose music
+at the click of a button.
+
+158
+00:09:17,523 --> 00:09:19,892
+This is nothing new
+for the scientific community,
+
+159
+00:09:19,892 --> 00:09:21,327
+however, which have been using
+
+160
+00:09:21,327 --> 00:09:23,863
+artificial intelligence
+methods for decades.
+
+161
+00:09:24,497 --> 00:09:26,399
+When it comes to working
+with Landsat data.
+
+162
+00:09:26,399 --> 00:09:27,800
+One of the most popular A.I.
+
+163
+00:09:27,800 --> 00:09:29,802
+tools is machine learning.
+
+164
+00:09:29,802 --> 00:09:32,038
+Machine
+learning is a subset of A.I.
+
+165
+00:09:32,071 --> 00:09:33,573
+that can train
+computer programs
+
+166
+00:09:33,573 --> 00:09:36,642
+to recognize patterns
+and analyze imagery skills
+
+167
+00:09:36,642 --> 00:09:38,210
+that prove exceptional useful
+
+168
+00:09:38,210 --> 00:09:40,513
+in the application of Landsat
+data.
+
+169
+00:09:40,513 --> 00:09:42,548
+In fact,
+when combined with Landsat
+
+170
+00:09:42,848 --> 00:09:44,984
+machine learning models
+have led to a number
+
+171
+00:09:44,984 --> 00:09:47,820
+of advances across a variety
+of scientific fields,
+
+172
+00:09:48,120 --> 00:09:50,656
+granting further insight
+into our planet's past,
+
+173
+00:09:50,756 --> 00:09:52,858
+present and future.
+
+174
+00:09:52,858 --> 00:09:54,627
+One of the major challenges
+of working
+
+175
+00:09:54,627 --> 00:09:56,529
+with satellite imagery
+like Landsat
+
+176
+00:09:56,529 --> 00:10:00,032
+can actually be
+found up in the sky, clouds
+
+177
+00:10:00,466 --> 00:10:02,401
+obscuring the Earth's surface
+and casting
+
+178
+00:10:02,401 --> 00:10:04,103
+shadows
+that reduce visibility.
+
+179
+00:10:04,103 --> 00:10:06,305
+A cloudy day
+can be a downright nuisance
+
+180
+00:10:06,305 --> 00:10:08,874
+when it comes to analyzing
+certain satellite imagery.
+
+181
+00:10:10,042 --> 00:10:11,310
+Accurately detecting these
+
+182
+00:10:11,310 --> 00:10:14,347
+pesky clouds would be a tall
+task for any one human,
+
+183
+00:10:14,580 --> 00:10:18,150
+but a piece of cake
+for a computer.
+
+184
+00:10:25,992 --> 00:10:29,161
+In 2019, researchers
+from Oregon State University
+
+185
+00:10:29,161 --> 00:10:31,263
+constructed
+a deep convolutional neural
+
+186
+00:10:31,263 --> 00:10:32,565
+network model
+
+187
+00:10:32,565 --> 00:10:33,699
+a machine learning tool
+
+188
+00:10:33,699 --> 00:10:36,268
+that excels at recognizing
+patterns in imagery.
+
+189
+00:10:36,836 --> 00:10:39,171
+With the help of existing
+Landsat eight data,
+
+190
+00:10:39,305 --> 00:10:40,539
+they taught
+their neural network
+
+191
+00:10:40,539 --> 00:10:43,309
+to automatically detect clouds
+and satellite imagery
+
+192
+00:10:43,309 --> 00:10:46,979
+with an amazing 97.1%
+accuracy rate.
+
+193
+00:10:47,713 --> 00:10:49,682
+The researchers
+believe in the future,
+
+194
+00:10:49,682 --> 00:10:51,150
+this machine learning
+technique
+
+195
+00:10:51,150 --> 00:10:53,352
+could even be harnessed
+to identify clouds
+
+196
+00:10:53,352 --> 00:10:55,955
+across the entire Landsat
+eight archive.
+
+197
+00:10:57,456 --> 00:11:00,026
+Machine learning benefits
+don't just end when the clouds
+
+198
+00:11:00,026 --> 00:11:01,594
+clear down on the ground.
+
+199
+00:11:01,594 --> 00:11:03,529
+There's plenty
+to keep an eye on.
+
+200
+00:11:03,529 --> 00:11:05,731
+Our planet's one
+constant is change.
+
+201
+00:11:06,098 --> 00:11:06,799
+Earth's surface
+
+202
+00:11:06,799 --> 00:11:10,302
+is perpetually evolving due
+to human and natural forces.
+
+203
+00:11:10,836 --> 00:11:13,706
+Landsat its ability to track
+these changes over time
+
+204
+00:11:13,939 --> 00:11:15,641
+has proven to be
+an incredible asset
+
+205
+00:11:15,641 --> 00:11:17,309
+to the scientific community,
+
+206
+00:11:17,309 --> 00:11:20,046
+especially when used in
+concert with machine learning.
+
+207
+00:11:20,680 --> 00:11:23,416
+For example, researchers
+from the University of Texas
+
+208
+00:11:23,416 --> 00:11:25,317
+at Austin
+used the Landsat data
+
+209
+00:11:25,317 --> 00:11:27,520
+with a random forest
+classifier,
+
+210
+00:11:27,520 --> 00:11:30,289
+yet another type of machine
+learning tool that combines
+
+211
+00:11:30,289 --> 00:11:32,558
+multiple decision trees
+to make predictions.
+
+212
+00:11:33,092 --> 00:11:35,461
+Using data from Landsat four
+through eight.
+
+213
+00:11:35,695 --> 00:11:38,664
+They used the classifier
+to map the changes in land use
+
+214
+00:11:38,664 --> 00:11:41,934
+in northwestern Belize
+from the 1980s to the present.
+
+215
+00:11:42,902 --> 00:11:45,337
+The results showed that
+tropical forests and wetlands
+
+216
+00:11:45,571 --> 00:11:47,640
+don't have
+a designated protection status
+
+217
+00:11:47,807 --> 00:11:50,409
+or are increasingly vulnerable
+to deforestation
+
+218
+00:11:50,643 --> 00:11:53,212
+due to Belize's expanding
+industrial agriculture.
+
+219
+00:11:53,846 --> 00:11:55,748
+By combining
+these new advances in machine
+
+220
+00:11:55,748 --> 00:11:57,283
+learning with Landsat
+to capacity
+
+221
+00:11:57,283 --> 00:11:59,485
+for looking back in time,
+researchers
+
+222
+00:11:59,485 --> 00:12:01,387
+believe this approach
+makes it possible
+
+223
+00:12:01,387 --> 00:12:04,623
+to provide robust estimates
+of deforestation in Belize.
+
+224
+00:12:04,623 --> 00:12:06,192
+Going forward,
+
+225
+00:12:08,294 --> 00:12:10,563
+as climate change drives
+our planet's temperatures
+
+226
+00:12:10,563 --> 00:12:11,197
+higher,
+
+227
+00:12:11,197 --> 00:12:12,231
+so does the prevalence
+
+228
+00:12:12,231 --> 00:12:14,767
+of extreme events
+that put ecosystems at risk.
+
+229
+00:12:15,234 --> 00:12:17,870
+Wildfires across
+the globe has seen an increase
+
+230
+00:12:17,870 --> 00:12:20,039
+in frequency and intensity.
+
+231
+00:12:20,039 --> 00:12:22,508
+Australia is no stranger
+to these types of fires.
+
+232
+00:12:22,842 --> 00:12:23,843
+The 2019
+
+233
+00:12:23,843 --> 00:12:25,411
+2020 bushfire season
+
+234
+00:12:25,411 --> 00:12:27,513
+was one of the most
+destructive on record.
+
+235
+00:12:27,847 --> 00:12:29,749
+Using satellite imagery
+to pinpoint
+
+236
+00:12:29,749 --> 00:12:31,851
+when and where
+wildfires are burning
+
+237
+00:12:31,851 --> 00:12:32,985
+can be an important tool
+
+238
+00:12:32,985 --> 00:12:35,688
+for assessing damage
+and preventing future fires.
+
+239
+00:12:36,288 --> 00:12:38,891
+Researchers at the University
+of Western Australia
+
+240
+00:12:43,095 --> 00:12:46,398
+to generate a 16 year
+history of wildfire severity
+
+241
+00:12:46,398 --> 00:12:49,235
+in the eucalyptus forests
+of the continent's southwest.
+
+242
+00:12:49,935 --> 00:12:51,203
+They said data gathered by
+
+243
+00:12:51,203 --> 00:12:54,974
+satellites, including Landsat
+eight from 2005 to 2020
+
+244
+00:12:55,107 --> 00:12:57,810
+into a supervised classifier,
+a type of machine
+
+245
+00:12:57,810 --> 00:12:59,912
+learning algorithm
+that learns to classify
+
+246
+00:12:59,912 --> 00:13:02,882
+data based on labeled examples
+provided during training
+
+247
+00:13:03,849 --> 00:13:06,252
+by teaching the algorithm
+with examples from the past.
+
+248
+00:13:06,285 --> 00:13:08,020
+This method of machine
+learning could be used
+
+249
+00:13:08,020 --> 00:13:10,189
+to predict the severity
+of future wildfires.
+
+250
+00:13:10,389 --> 00:13:11,857
+Critical data
+that could aid in
+
+251
+00:13:11,857 --> 00:13:13,425
+the management
+and conservation
+
+252
+00:13:13,425 --> 00:13:15,861
+of Australia's
+extensive eucalyptus forests.
+
+253
+00:13:17,463 --> 00:13:19,965
+These were just a few examples
+of the remarkable ways
+
+254
+00:13:20,199 --> 00:13:23,102
+the fusion of Landsat data
+with machine learning tools
+
+255
+00:13:23,269 --> 00:13:24,937
+are unlocking
+new possibilities
+
+256
+00:13:24,937 --> 00:13:26,872
+for understanding our planet.
+
+257
+00:13:26,872 --> 00:13:28,474
+This collaboration
+has already led
+
+258
+00:13:28,474 --> 00:13:31,343
+to significant advances
+in agriculture, forestry,
+
+259
+00:13:31,377 --> 00:13:34,079
+urban planning, climate change
+research and more
+
+260
+00:13:34,680 --> 00:13:36,982
+as satellite data
+such as Landsat becomes
+
+261
+00:13:36,982 --> 00:13:38,951
+increasingly available
+and machine
+
+262
+00:13:38,951 --> 00:13:40,986
+learning techniques
+continue to improve.
+
+263
+00:13:40,986 --> 00:13:43,389
+So too will
+the potential for applications
+
+264
+00:13:43,389 --> 00:13:44,423
+in additional fields
+
+265
+00:13:44,423 --> 00:13:46,959
+critical to the health
+of our planet's ecosystems.
+
+266
+00:13:47,526 --> 00:13:48,093
+In tackling
+
+267
+00:13:48,093 --> 00:13:50,563
+the complex challenges
+of today and tomorrow,
+
+268
+00:13:50,763 --> 00:13:52,598
+the partnership
+between Landsat data
+
+269
+00:13:52,598 --> 00:13:54,667
+and machine
+learning will be vital to help
+
+270
+00:13:54,667 --> 00:13:57,269
+people make better decisions
+to protect our planet.

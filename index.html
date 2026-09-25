@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Study Companion · Source-linked revision</title>
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <canvas id="cursorGlow" class="cursor-glow" aria-hidden="true"></canvas>
+  <a class="skip-link" href="#studyForm">Skip to study material</a>
+
+  <header class="app-bar">
+    <div class="brand-lockup">
+      <span class="brand-mark" data-icon="book" data-size="22"></span>
+      <div>
+        <p class="eyebrow">CM3070 · Final project</p>
+        <strong>AI Study Companion</strong>
+      </div>
+    </div>
+    <div class="app-bar-tools">
+      <p class="app-bar-note">Your notes. Your pace. A clearer way to revise.</p>
+      <button id="displayModeBtn" class="mode-toggle" type="button" aria-pressed="false" title="Switch to Night Study mode">
+        <span class="mode-toggle-orb" aria-hidden="true"></span>
+        <span class="mode-toggle-label">Night mode</span>
+      </button>
+    </div>
+  </header>
+
+  <main class="app-shell">
+    <section class="hero panel launch-hero">
+      <div>
+        <div class="hero-kicker-row">
+          <p class="eyebrow">Your personal study workspace</p>
+          <span class="hero-status"><i aria-hidden="true"></i> Ready to work locally</span>
+        </div>
+        <h1>A clearer path through<br><span>everything you’re learning.</span></h1>
+        <p class="hero-copy">Drop in your notes, readings, recordings, or diagrams. We’ll pull out the key ideas, give you questions to try, and show you where each answer came from.</p>
+        <div class="launch-actions"><a href="#studyForm" class="launch-primary">Start with your material <span aria-hidden="true">↗</span></a><sl-button type="button" id="heroSampleBtn" class="secondary" variant="default">Try an example</sl-button></div>
+        <p class="launch-note">No account needed · Local tools available · Every result keeps its source</p>
+        <div class="hero-signals" aria-label="Product principles">
+          <div class="hero-signal"><span class="signal-dot signal-dot-local" aria-hidden="true"></span><span><b>LOCAL-FIRST</b><small>Private by default</small></span></div>
+          <div class="hero-signal"><span class="signal-dot signal-dot-evidence" aria-hidden="true"></span><span><b>SOURCE-LINKED</b><small>See where results came from</small></span></div>
+          <div class="hero-signal"><span class="signal-dot signal-dot-mixed" aria-hidden="true"></span><span><b>MIXED INPUTS</b><small>Notes, audio, images</small></span></div>
+        </div>
+      </div>
+      <div class="hero-metrics launch-path" aria-label="Your study workflow">
+        <p class="eyebrow">From first read to confident recall</p>
+        <sl-card class="hero-card">
+          <div class="hero-card-content"><span class="launch-step">01</span><div><strong>Bring it together</strong>
+          <p>Keep readings, voice notes, and diagrams together.</p></div></div>
+        </sl-card>
+        <sl-card class="hero-card">
+          <div class="hero-card-content"><span class="launch-step">02</span><div><strong>Understand the connections</strong>
+          <p>Follow the key passages, connect the ideas, and check the sources.</p></div></div>
+        </sl-card>
+        <sl-card class="hero-card">
+          <div class="hero-card-content"><span class="launch-step">03</span><div><strong>Put it into practice</strong>
+          <p>Try the questions, then revisit whatever you missed.</p></div></div>
+        </sl-card>
+        <div class="architecture-rail" aria-label="System architecture at a glance">
+          <div class="architecture-heading"><span>LOCAL-FIRST PIPELINE</span><strong>Four steps. One trail back to your sources.</strong></div>
+          <div class="architecture-flow">
+            <span><b>01</b>Ingest</span><i aria-hidden="true">→</i>
+            <span><b>02</b>Retrieve</span><i aria-hidden="true">→</i>
+            <span><b>03</b>Ground</span><i aria-hidden="true">→</i>
+            <span><b>04</b>Practice</span>
+          </div>
+          <p>Your mixed files become study material you can inspect—not a black-box answer.</p>
+        </div>
+      </div>
+    </section>
+
+    <p class="privacy-banner">
+      <span data-icon="shield" data-size="18"></span>
+      Your files and notes stay in this browser unless you turn on an optional cloud helper.
+    </p>
+
+    <section id="runProgress" class="run-progress hidden" aria-label="Processing progress">
+      <span class="run-spinner" aria-hidden="true"></span>
+      <div><strong id="runStage" role="status">Preparing your material…</strong><small id="runElapsed">0s elapsed</small></div>
+      <sl-button id="cancelBtn" type="button" class="secondary" variant="default">Stop this run</sl-button>
+    </section>
+    <section class="grid work-grid">
+      <form id="studyForm" class="panel input-panel">
+        <div class="section-title">
+          <div><p class="eyebrow">Step 1</p>
+            <h2><span data-icon="notes"></span> Add study material</h2></div>
+          <span class="section-status"><i aria-hidden="true"></i> Stays on this device</span>
+        </div>
+
+        <div id="formError" class="error-banner hidden" role="alert"></div>
+        <section class="intake-summary" aria-label="Input overview">
+          <div><span class="eyebrow">In this session</span><strong id="intakeCount">Nothing added yet</strong></div>
+          <p id="intakeDetail">Add a file or paste something below. You can mix notes, audio, and images.</p>
+          <sl-progress-bar id="intakeMeter" class="intake-progress" value="0" aria-label="Attached file limit used"></sl-progress-bar>
+          <small id="intakeLimit">Up to 16 files · 256 MB total</small>
+        </section>
+
+        <div class="input-group" id="textGroup">
+          <label for="textNotes"><span data-icon="notes" data-size="16"></span> Written notes <sl-badge class="lane-badge" pill variant="neutral">Notes</sl-badge></label>
+          <div class="field-wrap">
+            <textarea id="textNotes" rows="7"
+              placeholder="Paste notes here, or drop a .txt, .md, .pdf, or .docx file onto this box."></textarea>
+          </div>
+
+          <div class="file-card">
+            <input id="textFile" class="file-input-hidden" type="file" multiple
+              accept=".txt,.md,.markdown,.csv,.log,.pdf,.docx,text/plain,application/pdf" />
+            <label for="textFile" class="file-card-body">
+              <span class="file-card-icon" data-icon="file" data-size="22"></span>
+              <span class="file-card-copy">
+                <span class="file-card-title">Choose note files</span>
+                <span class="file-card-meta">.txt, .md, .pdf, or .docx · multiple files okay</span>
+                <span id="textFileName" class="file-card-name">No file selected yet</span>
+              </span>
+            </label>
+            <button type="button" class="ghost file-clear" data-clear-file="textFile">Clear</button>
+          </div>
+          <ul id="textFileList" class="file-list hidden"></ul>
+        </div>
+
+        <div class="input-group" id="audioGroup">
+          <label for="audioTranscript"><span data-icon="mic" data-size="16"></span> Audio or transcript <sl-badge class="lane-badge" pill variant="neutral">Audio</sl-badge></label>
+          <div class="field-wrap">
+            <textarea id="audioTranscript" rows="4"
+              placeholder="Paste a transcript, drop a .txt, .vtt, or .srt file here, or attach a recording below."></textarea>
+          </div>
+
+          <div class="file-card">
+            <input id="audioFile" class="file-input-hidden" type="file" multiple
+              accept="audio/*,.mp3,.wav,.m4a,.aac,.ogg,.opus,.flac,.webm,.mp4,.txt,.vtt,.srt" />
+            <label for="audioFile" class="file-card-body">
+              <span class="file-card-icon" data-icon="mic" data-size="22"></span>
+              <span class="file-card-copy">
+                <span class="file-card-title">Choose audio</span>
+                <span class="file-card-meta">Up to 100 MB each · 30 minutes total, or a transcript file</span>
+                <span id="audioFileName" class="file-card-name">No file selected yet</span>
+              </span>
+            </label>
+            <button type="button" class="ghost file-clear" data-clear-file="audioFile">Clear</button>
+          </div>
+          <ul id="audioFileList" class="file-list hidden"></ul>
+        </div>
+
+        <div class="input-group" id="imageGroup">
+          <label for="imageDescription"><span data-icon="image" data-size="16"></span> Image or diagram
+            description <sl-badge class="lane-badge" pill variant="neutral">Images</sl-badge></label>
+          <div class="field-wrap">
+            <textarea id="imageDescription" rows="4"
+              placeholder="Add a description, or attach images below and we’ll read what we can from them."></textarea>
+          </div>
+
+          <div class="file-card">
+            <input id="imageFile" class="file-input-hidden" type="file" multiple accept="image/*" />
+            <label for="imageFile" class="file-card-body">
+              <span class="file-card-icon" data-icon="image" data-size="22"></span>
+              <span class="file-card-copy">
+                <span class="file-card-title">Choose images</span>
+                <span class="file-card-meta">PNG, JPG, WebP, or GIF · multiple files okay</span>
+                <span id="imageFileName" class="file-card-name">No file selected yet</span>
+              </span>
+            </label>
+            <button type="button" class="ghost file-clear" data-clear-file="imageFile">Clear</button>
+          </div>
+          <ul id="imageFileList" class="file-list hidden"></ul>
+        </div>
+
+        <fieldset class="engine-fieldset">
+          <legend><span data-icon="cpu" data-size="16"></span> Generation engine</legend>
+          <label class="choice-card">
+            <input type="radio" name="engine" value="local" checked />
+            <span class="choice-mark" aria-hidden="true"></span>
+            <span class="choice-copy">
+              <span class="choice-heading"><strong>Hybrid Focus</strong><sl-badge class="engine-badge is-balanced" pill variant="success">BALANCED</sl-badge></span>
+              <em>Finds the passages worth your attention and balances coverage across your material. A good fast, private starting point.</em>
+              <span class="engine-metric" data-engine-metric="local"></span>
+            </span>
+          </label>
+          <label class="choice-card">
+            <input type="radio" name="engine" value="baseline" />
+            <span class="choice-mark" aria-hidden="true"></span>
+            <span class="choice-copy">
+              <span class="choice-heading"><strong>Keyword Scout</strong><sl-badge class="engine-badge is-fast" pill variant="warning">FAST</sl-badge></span>
+              <em>A quick scan for repeated terms and matching sentences—useful for a first pass over short notes.</em>
+              <span class="engine-metric" data-engine-metric="baseline"></span>
+            </span>
+          </label>
+          <label class="choice-card">
+            <input type="radio" name="engine" value="semantic" />
+            <span class="choice-mark" aria-hidden="true"></span>
+            <span class="choice-copy">
+              <span class="choice-heading"><strong>Semantic Explorer</strong><sl-badge class="engine-badge is-deep" pill variant="primary">MEANING</sl-badge></span>
+              <em>Finds related passages by meaning without writing the text for you. Downloads MiniLM the first time you use it.</em>
+              <span class="engine-metric" data-engine-metric="semantic"></span>
+            </span>
+          </label>
+        <label class="choice-card">
+          <input type="radio" name="engine" value="cloud" />
+          <span class="choice-mark" aria-hidden="true"></span>
+          <span class="choice-copy"><span class="choice-heading"><strong>Study Reasoner</strong><sl-badge class="engine-badge is-cloud" pill variant="warning">OPTIONAL CLOUD</sl-badge></span>
+            <em>Uses selected passages to draft explanations and study questions. Those passages are sent to Google.</em>
+            <span class="engine-metric" data-engine-metric="cloud"></span>
+          </span>
+        </label>
+        </fieldset>
+        <p class="muted">These labels explain how each engine works; they are not accuracy scores. Timings include reading files and downloading models.</p>
+        <fieldset class="engine-fieldset">
+          <legend><span data-icon="image" data-size="16"></span> Image understanding</legend>
+          <label class="choice-card">
+            <input type="radio" name="visionMode" value="local" checked />
+            <span class="choice-mark" aria-hidden="true"></span>
+            <span class="choice-copy">
+              <span class="choice-heading"><strong>Local vision model</strong><sl-badge class="engine-badge is-private" pill variant="success">ON-DEVICE</sl-badge></span>
+              <em>Reads text and describes images on this computer. A model downloads the first time you use it.</em>
+            </span>
+          </label>
+          <label class="choice-card">
+            <input type="radio" name="visionMode" value="cloud" />
+            <span class="choice-mark" aria-hidden="true"></span>
+            <span class="choice-copy">
+              <span class="choice-heading"><strong>Free-cloud vision</strong><sl-badge class="engine-badge is-cloud" pill variant="warning">OPTIONAL CLOUD</sl-badge></span>
+              <em>Works with Study Reasoner and sends images to Google using your key.</em>
+            </span>
+          </label>
+        </fieldset>
+
+        <sl-details class="optional-cloud" open summary="Optional cloud helper">
+          <p id="cloudKeyHelp">Choose Study Reasoner to turn on this key and cloud vision. Other engines stay local. Only the passages, quiz excerpts, or images needed for the cloud feature you choose are sent to Google.</p>
+          <p><a href="https://aistudio.google.com/apikey" target="_blank" rel="noopener noreferrer">Get a free-tier key in Google AI Studio ↗</a>. Sign in, create a key in a free-tier project, and paste it below. Google may use free-tier content to improve its products. Avoid uploading anything sensitive. Google controls access and quotas; the app cannot create a key for you.</p>
+          <label class="free-tier-confirm"><input id="freeTierOnly" type="checkbox" /> This key belongs to a free-tier project with billing turned off.</label>
+          <label for="cloudKey">Google AI Studio key</label>
+          <input id="cloudKey" type="password" autocomplete="off" />
+          <sl-button id="polishBtn" class="secondary" variant="default" type="button">Improve quiz explanations</sl-button>
+        </sl-details>
+
+        <div class="button-row">
+          <sl-button type="button" id="sampleBtn" class="secondary" variant="default"><span slot="prefix" data-icon="play" data-size="16"></span> Use
+            an example</sl-button>
+          <sl-button type="submit" id="generateBtn" variant="primary" size="large"><span slot="prefix" data-icon="spark" data-size="16"></span> Build my revision
+            pack</sl-button>
+          <sl-button type="button" id="compareBtn" class="secondary" variant="default"><span slot="prefix" data-icon="compare" data-size="16"></span>
+            Compare approaches</sl-button>
+          <sl-button type="button" id="resetBtn" class="ghost" variant="default"><span slot="prefix" data-icon="refresh" data-size="16"></span>
+            Reset</sl-button>
+        </div>
+      </form>
+
+      <div class="side-stack">
+        <aside class="panel">
+          <div class="section-title">
+            <p class="eyebrow">Step 2</p>
+            <h2><span data-icon="flow"></span> What happens next</h2>
+          </div>
+          <ol class="pipeline" id="pipeline">
+            <li data-stage="inputs"><span data-icon="layers" data-size="16"></span>Gather your material</li>
+            <li data-stage="preprocess"><span data-icon="notes" data-size="16"></span>Tidy and split the text</li>
+            <li data-stage="retrieve"><span data-icon="search" data-size="16"></span>Find and rank passages</li>
+            <li data-stage="generate"><span data-icon="spark" data-size="16"></span>Build your revision pack</li>
+            <li data-stage="check"><span data-icon="shield" data-size="16"></span>Check sources and coverage</li>
+          </ol>
+          <div class="pipeline-status-grid" aria-label="Pipeline properties">
+            <div><i class="status-led is-live" aria-hidden="true"></i><span><b>Private by default</b><small>Runs on this device</small></span></div>
+            <div><i class="status-led is-traced" aria-hidden="true"></i><span><b>Sources stay attached</b><small>You can inspect every result</small></span></div>
+          </div>
+          <div id="adapterStatus" class="status-line" role="status" aria-live="polite"></div>
+          <div class="note-box">
+            <h3><span data-icon="alert" data-size="16"></span> A note about audio and images</h3>
+            <p>Speech-to-text, OCR, and image descriptions run on this computer when you attach a file. If a model
+              cannot finish, the app keeps any text you pasted and tells you what happened.</p>
+          </div>
+        </aside>
+
+        <aside class="panel">
+          <div class="section-title">
+            <p class="eyebrow">Saved on this device</p>
+            <h2><span data-icon="history"></span> Recent study packs</h2>
+          </div>
+          <p id="historyEmpty" class="muted">Nothing saved yet. Build a pack and it will stay in this browser.</p>
+          <div id="historyList" class="history-list"></div>
+          <div class="history-toolbar">
+            <button id="clearHistoryBtn" class="ghost history-clear" type="button" disabled>
+              <span data-icon="refresh" data-size="14"></span>
+              Clear saved packs
+            </button>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="tracePanel" class="panel trace-panel hidden" aria-label="Orchestration trace">
+      <div class="section-title">
+        <p class="eyebrow">Build trace</p>
+        <h2><span data-icon="flow"></span> How this pack came together</h2>
+      </div>
+      <ol id="traceList" class="trace-list"></ol>
+    </section>
+
+    <section id="insightsPanel" class="panel insights-panel hidden" aria-label="Pack insights">
+      <div class="section-title">
+        <p class="eyebrow">Insights</p>
+        <h2><span data-icon="chart"></span> Coverage, source links, and concept structure</h2>
+      </div>
+      <div class="insights-grid">
+        <sl-card class="chart-card">
+          <div class="chart-head">
+            <h3>Source coverage</h3>
+            <div class="chart-controls" role="group" aria-label="Coverage units">
+              <div class="chart-toggle-pair" role="group" aria-label="Coverage units">
+                <sl-button type="button" size="small" class="chip-toggle is-active" data-coverage-mode="count">Count</sl-button>
+                <sl-button type="button" size="small" class="chip-toggle" data-coverage-mode="percent">Percent</sl-button>
+              </div>
+            </div>
+          </div>
+          <p class="muted">See how many sentences from each source made it into the pack.</p>
+          <div id="coverageChart" class="chart-host"></div>
+        </sl-card>
+
+        <sl-card class="chart-card">
+          <div class="chart-head">
+            <h3>Grounding spread</h3>
+            <div class="chart-controls" role="group" aria-label="Histogram bins">
+              <div class="chart-toggle-pair" role="group" aria-label="Histogram bins">
+                <sl-button type="button" size="small" class="chip-toggle is-active" data-bins="5">5 bands</sl-button>
+                <sl-button type="button" size="small" class="chip-toggle" data-bins="10">10 bands</sl-button>
+              </div>
+            </div>
+          </div>
+          <p class="muted">See how strongly each output is tied to its source.</p>
+          <div id="groundingChart" class="chart-host"></div>
+        </sl-card>
+
+        <sl-card class="chart-card">
+          <div class="chart-head">
+            <h3>Quiz mix</h3>
+          </div>
+          <p class="muted">A quick look at the question types in this pack.</p>
+          <div id="quizChart" class="chart-host"></div>
+        </sl-card>
+
+        <sl-card class="chart-card">
+          <div class="chart-head">
+            <h3>Concept graph</h3>
+            <div class="chart-controls">
+              <div class="strength-control">
+                <div class="strength-copy">
+                  <span>Link strength</span>
+                  <strong id="edgeFilterValue">1+</strong>
+                </div>
+                <input type="range" id="edgeFilter" min="1" max="5" step="1" value="1" />
+                <div class="strength-ticks" aria-hidden="true">
+                  <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <p class="muted">A link means the ideas share wording, a section, or a supporting sentence. Move the
+            slider up to hide weaker links. Larger nodes are ranked higher.</p>
+          <div id="graphChart" class="chart-host"></div>
+        </sl-card>
+
+        <sl-card class="chart-card wide">
+          <div class="chart-head">
+            <h3>3D concept map</h3>
+            <div class="chart-controls">
+              <div class="chart-toggle-pair" role="group" aria-label="3D map controls">
+                <sl-button type="button" size="small" class="chip-toggle is-active" id="graph3dSpin">Spin</sl-button>
+                <sl-button type="button" size="small" class="chip-toggle" id="graph3dReset">Recenter</sl-button>
+              </div>
+            </div>
+          </div>
+          <p class="muted">Hover to spotlight an idea and its neighbours, or click to read its evidence. Drag to rotate and scroll to zoom. Thicker links show more shared wording or context—not stronger proof. A dashed ring marks an idea with no links.</p>
+          <div class="graph3d-host">
+            <canvas id="graph3d" width="900" height="440" role="img"
+              aria-label="Rotatable three-dimensional map of extracted concepts"></canvas>
+            <p id="graph3dReadout" class="graph3d-readout" role="status" aria-live="polite"></p>
+          </div>
+        </sl-card>
+      </div>
+    </section>
+
+    <section id="comparePanel" class="panel compare-panel hidden" aria-label="Engine comparison">
+      <div class="section-title">
+        <p class="eyebrow">Evaluation</p>
+        <h2><span data-icon="compare"></span> Baseline vs. improved</h2>
+      </div>
+      <div id="compareTable" class="compare-table"></div>
+    </section>
+
+    <section class="output-layout">
+      <section class="panel output-panel" aria-live="polite">
+        <div class="section-title output-title">
+          <div>
+            <p class="eyebrow">Step 3</p>
+            <h2><span data-icon="book"></span> Your revision pack</h2>
+          </div>
+          <div class="button-row compact">
+            <button id="exportBtn" class="secondary" type="button" disabled><span data-icon="download"
+                data-size="16"></span> Export JSON</button>
+            <button id="exportMdBtn" class="secondary" type="button" disabled><span data-icon="download"
+                data-size="16"></span> Export Markdown</button>
+          </div>
+        </div>
+        <div id="emptyState" class="empty-state">
+          <span class="empty-art" data-icon="book" data-size="36"></span>
+          <p>Add some material and build a pack to see the takeaways, questions, charts, and source passages.</p>
+        </div>
+        <div id="results" class="results hidden">
+          <sl-card class="result-card">
+            <h3><span data-icon="list" data-size="18"></span> Summary</h3>
+            <ul id="summaryList"></ul>
+          </sl-card>
+          <sl-card class="result-card">
+            <h3><span data-icon="network" data-size="18"></span> Key concepts</h3>
+            <div id="conceptList" class="concept-grid"></div>
+          </sl-card>
+          <sl-card class="result-card wide">
+            <h3><span data-icon="quiz" data-size="18"></span> Quiz questions</h3>
+            <p id="quizScore" class="quiz-score muted"></p>
+            <ol id="quizList"></ol>
+          </sl-card>
+          <sl-card class="result-card wide">
+            <h3><span data-icon="check" data-size="18"></span> Recommended next steps</h3>
+            <ul id="nextStepsList"></ul>
+          </sl-card>
+          <sl-card class="result-card wide">
+            <h3><span data-icon="shield" data-size="18"></span> Source-grounding checks</h3>
+            <div id="checks"></div>
+          </sl-card>
+        </div>
+      </section>
+
+      <section id="evidencePanel" class="panel evidence-panel hidden" aria-label="Source evidence">
+        <div class="section-title">
+          <p class="eyebrow">Evidence</p>
+          <h2><span data-icon="link"></span> Source passages</h2>
+        </div>
+        <p class="muted">Select a source tag to highlight the passage behind a result. The other passages will fade back.</p>
+
+        <div class="pager" role="group" aria-label="Evidence pages">
+          <button type="button" class="pager-btn" data-page-step="first" aria-label="First page">«</button>
+          <button type="button" class="pager-btn" data-page-step="prev" aria-label="Previous page">‹</button>
+          <span id="pagerStatus" class="pager-status" role="status" aria-live="polite"></span>
+          <button type="button" class="pager-btn" data-page-step="next" aria-label="Next page">›</button>
+          <button type="button" class="pager-btn" data-page-step="last" aria-label="Last page">»</button>
+        </div>
+        <div class="pager-jump">
+          <label for="pageJump">Page</label>
+          <input id="pageJump" type="number" min="1" step="1" inputmode="numeric" />
+          <label for="sentenceJump">Sentence</label>
+          <input id="sentenceJump" type="number" min="1" step="1" inputmode="numeric" />
+          <button type="button" class="secondary" id="jumpBtn">Go</button>
+        </div>
+
+        <ol id="evidenceList" class="evidence-list"></ol>
+
+        <div id="unusedBox" class="unused-box hidden">
+          <h3><span data-icon="unused" data-size="16"></span> Other passages from your sources</h3>
+          <p class="muted">These sentences were read but not selected for this pack. They are still here if you want to explore them next.</p>
+          <ul id="unusedList"></ul>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <footer class="app-footer">
+    <div class="footer-grid">
+      <div>
+        <p class="eyebrow">AI Study Companion</p>
+        <p class="muted">CM3070 final project · University of London and Goldsmiths.</p>
+      </div>
+      <div>
+        <h3>What it does</h3>
+        <ul class="footer-list">
+          <li>Finds useful passages across your own sentences</li>
+          <li>Reads audio, scanned text, and images on this device when you attach them</li>
+          <li>Builds local questions, with an optional cloud-assisted writing mode</li>
+        </ul>
+      </div>
+      <div>
+        <h3>A quick note before you rely on it</h3>
+        <ul class="footer-list">
+          <li>This is a study aid, not a promise of better grades</li>
+          <li>Source links show traceability, not full fact-checking</li>
+          <li>You never need a paid API to use the local features</li>
+        </ul>
+      </div>
+    </div>
+    <p class="footer-base">
+      <span data-icon="lock" data-size="14"></span>
+      Everything runs in this browser unless you choose an optional cloud helper.
+    </p>
+  </footer>
+
+  <div id="chartTip" class="chart-tip" role="tooltip" aria-hidden="true"></div>
+
+  <div id="imageLightbox" class="lightbox hidden" role="dialog" aria-label="Image preview" aria-modal="true" aria-hidden="true" hidden>
+    <div class="lightbox-backdrop"></div>
+    <figure class="lightbox-frame">
+      <img id="lightboxImage" alt="" />
+      <figcaption id="lightboxCaption" class="lightbox-caption"></figcaption>
+      <button type="button" class="lightbox-close" id="lightboxClose">Close preview</button>
+    </figure>
+  </div>
+
+  <template id="conceptTemplate">
+    <div class="concept-pill"><strong></strong><span></span><em class="related"></em></div>
+  </template>
+  <script type="module" src="/src/main.js"></script>
+</body>
+
+</html>

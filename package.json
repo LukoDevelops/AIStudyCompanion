@@ -1,0 +1,35 @@
+{
+  "name": "ai-study-companion",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "AI Study Companion: a source-linked revision workspace for the CM3070 final project.",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "samples": "node scripts/sample-library.mjs",
+    "samples:refresh": "node scripts/sample-library.mjs --refresh",
+    "test": "vitest run",
+    "benchmark": "node scripts/benchmark.mjs"
+  },
+  "dependencies": {
+    "@huggingface/transformers": "^3.7.1",
+    "@shoelace-style/shoelace": "^2.20.1",
+    "mammoth": "^1.12.3",
+    "pdfjs-dist": "^6.3.289",
+    "smokey-fluid-cursor": "^1.0.7",
+    "tesseract.js": "^5.1.1"
+  },
+  "devDependencies": {
+    "@napi-rs/canvas": "^1.0.9",
+    "jsdom": "^25.0.1",
+    "vite": "^6.3.5",
+    "vitest": "^5.0.0"
+  },
+  "overrides": {
+    "@huggingface/transformers": {
+      "sharp": "^0.35.4"
+    }
+  }
+}

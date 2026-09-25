@@ -1,0 +1,2 @@
+Space mission QA exercise — invented values, not NASA mission data.
+The sensor reads 18 °C, not 28 °C. An alert does not prove a spacecraft fault. The signal increased from 40% to 60%, a change of 20 percentage points. The spacecraft did not detect water.

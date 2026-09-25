@@ -1,0 +1,215 @@
+[
+  {
+    "file": "README.md",
+    "bytes": 6045,
+    "sha256": "3499b084237269d20115ba55b4d03de31e4be3411b85153b9e19be0ff12702bf",
+    "kind": "Library guide"
+  },
+  {
+    "file": "audio/apollo-eagle-landed.mp3",
+    "bytes": 26388,
+    "sha256": "c2cf9c2754ec3c2f7315acd4fcdd7d892fb2027919c1a80adf90a49f63c0316c",
+    "url": "https://www.nasa.gov/wp-content/uploads/2015/01/569462main_eagle_has_landed.mp3",
+    "source": "https://www.nasa.gov/historical-sounds/",
+    "credit": "NASA, Apollo 11 historical mission recording. Radio static makes this a challenging speech sample.",
+    "kind": "Original mission audio"
+  },
+  {
+    "file": "audio/apollo-landing-extended.mp3",
+    "bytes": 240687,
+    "sha256": "e1c47957a46fced583e9d8b61a0c377f8ad46300137b0bfb59f9f3a95c836c51",
+    "url": "https://www.nasa.gov/wp-content/uploads/2015/01/590333main_ringtone_eagleHasLanded_extended.mp3",
+    "source": "https://www.nasa.gov/historical-sounds/",
+    "credit": "NASA, Apollo 11 extended landing recording.",
+    "kind": "Original mission audio"
+  },
+  {
+    "file": "audio/apollo-landing-extended.wav",
+    "bytes": 474044,
+    "sha256": "6b742ce6fe0eb532c5b9da7343ccabddb179d466a6ce5f1c4c0a99c52d305b3c",
+    "source": "https://www.nasa.gov/historical-sounds/",
+    "credit": "NASA Apollo 11 audio decoded to 16 kHz mono PCM WAV; same recording as the MP3."
+  },
+  {
+    "file": "audio/kennedy-we-choose-the-moon.mp3",
+    "bytes": 652266,
+    "sha256": "b2e6f87c7254870ce6183ffaff839d255cef00a8c53aefd26d0d3898f33b7949",
+    "url": "https://www.nasa.gov/wp-content/uploads/2015/01/586447main_JFKwechoosemoonspeech.mp3",
+    "source": "https://www.nasa.gov/historical-sounds/",
+    "credit": "John F. Kennedy, Rice University address, 12 September 1962. Historical U.S. presidential speech excerpt distributed by NASA.",
+    "kind": "Historical speech excerpt"
+  },
+  {
+    "file": "audio/nasa-ai-podcast.mp3",
+    "bytes": 29033430,
+    "sha256": "0146abf3631a9b55c511afe17fac41733d099a61027f96649f8de14bd9c81a56",
+    "url": "https://www.nasa.gov/wp-content/uploads/2023/07/episode-06-artificial-intelligence.mp3",
+    "source": "https://www.nasa.gov/podcasts/small-steps-giant-leaps/small-steps-giant-leaps-episode-6-artificial-intelligence/",
+    "credit": "NASA APPEL Knowledge Services, Small Steps, Giant Leaps, episode 6, Artificial Intelligence (19 March 2019), with Brian Thomas.",
+    "kind": "Original podcast episode"
+  },
+  {
+    "file": "edge-cases/apollo-repeated-20min.wav",
+    "bytes": 38400044,
+    "sha256": "967285a1bb6d9235f344968f0060441d4f31ac5151134754cfa0f123bace79fe",
+    "source": "https://www.nasa.gov/historical-sounds/",
+    "credit": "NASA Apollo 11 excerpt repeated to 20 minutes. Artificial stress input, not a continuous mission recording."
+  },
+  {
+    "file": "edge-cases/corrupt.docx",
+    "bytes": 64,
+    "sha256": "d586f728b35953b2448563d87a7f24f4918ed4b6ca10bb1fcac44f6ff05c77da",
+    "kind": "Deliberate QA input; not source research"
+  },
+  {
+    "file": "edge-cases/corrupt.pdf",
+    "bytes": 63,
+    "sha256": "ef7fe3259025677623e4e5b997cd6e56eb9259bdf69e88a2cbdc772c4bd21cc7",
+    "kind": "Deliberate QA input; not source research"
+  },
+  {
+    "file": "edge-cases/corrupt.png",
+    "bytes": 63,
+    "sha256": "d56c1e612826b900312d7a6f50946301816e2d4929bcd7d27773397ff49ca599",
+    "kind": "Deliberate QA input; not source research"
+  },
+  {
+    "file": "edge-cases/corrupt.wav",
+    "bytes": 63,
+    "sha256": "14297797e48ccc38aabe4d9757627e490ccd6f18735c7eb2faca9693a66ed008",
+    "kind": "Deliberate QA input; not source research"
+  },
+  {
+    "file": "edge-cases/empty.txt",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "kind": "Deliberate QA input; not source research"
+  },
+  {
+    "file": "edge-cases/negation-and-unicode.txt",
+    "bytes": 260,
+    "sha256": "a4d25ebbe6a3e0529296d0dc6a955236b736f48d2dc58e267b8181683655031b",
+    "kind": "Deliberate QA input; not source research"
+  },
+  {
+    "file": "edge-cases/oversized-text.txt",
+    "bytes": 688000,
+    "sha256": "2b577407c0ea597b0952254799720877f0a9ccf8f31d0f2257e939bdc6c219ea",
+    "kind": "Deliberate QA input; not source research"
+  },
+  {
+    "file": "edge-cases/silence.wav",
+    "bytes": 96044,
+    "sha256": "d303811b8c84619667cd0501342f84ec6cbe69f7aa3856dcf52fabda374c92b8",
+    "kind": "Deliberate QA input; not source research"
+  },
+  {
+    "file": "images/landsat-machine-learning.png",
+    "bytes": 2373125,
+    "sha256": "e325085f38006a4cf5920deb7fe7368f3d33fdea9439ff673138d108982da3ba",
+    "url": "https://svs.gsfc.nasa.gov/vis/a010000/a014300/a014336/LandsatAI_Thumb.png",
+    "source": "https://svs.gsfc.nasa.gov/14336/",
+    "credit": "NASA Scientific Visualization Studio, From Orbit to A.I. (2023). Original video title image.",
+    "kind": "Space and AI illustration"
+  },
+  {
+    "file": "images/perseverance-instruments.jpg",
+    "bytes": 173894,
+    "sha256": "f9b730487021d7d781dc9bdaf03704687a99f2031861e2b7fbf8b3e36e82edd4",
+    "url": "https://assets.science.nasa.gov/dynamicimage/assets/science/psd/mars/resources/detail_files/2/5/25045_Perseverance_Mars_Rover_Instrument_Labels-web.jpg?w=1402&h=791&fit=clip&crop=faces%2Cfocalpoint",
+    "source": "https://science.nasa.gov/resource/science-instruments-on-nasas-perseverance-mars-rover/",
+    "credit": "NASA/JPL-Caltech. Science instruments on the Perseverance Mars rover. NASA's web-size rendition, selected to fit the image-input limit.",
+    "kind": "Labelled scientific illustration"
+  },
+  {
+    "file": "images/pumpkin-sun.jpg",
+    "bytes": 1271935,
+    "sha256": "a95a527d87779f9716694784794f1d2a974c92adb6329a5ad559103e6e6dcf5e",
+    "url": "https://svs.gsfc.nasa.gov/vis/a010000/a011700/a011711/Halloween_Sun_2014_2k.jpg",
+    "source": "https://svs.gsfc.nasa.gov/11711/",
+    "credit": "NASA/GSFC/SDO. Composite of 171 and 193 angstrom observations on 8 October 2014. The apparent face is a pattern in solar activity, not a literal face.",
+    "kind": "Humorous real scientific image"
+  },
+  {
+    "file": "text/apollo-landing-site.srt",
+    "bytes": 141,
+    "sha256": "bcc0b9c1c89cf145b098f19bd35427b691ae62b0766a7e4cdeab370fa37ad454",
+    "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004100/a004185/G2014-064_Apollo11_LandingSite.en_US.srt",
+    "source": "https://svs.gsfc.nasa.gov/4185/",
+    "credit": "NASA Goddard SVS, Apollo 11 Landing Site (2014). Same captions as the VTT in another format.",
+    "kind": "Original video captions"
+  },
+  {
+    "file": "text/apollo-landing-site.txt",
+    "bytes": 75,
+    "sha256": "ea5e8e753e45343bba339368d4ea19650da2af8f8e5859f4907e49b9245806c4",
+    "source": "https://svs.gsfc.nasa.gov/4185/",
+    "credit": "NASA SVS captions with timing and cue markup removed."
+  },
+  {
+    "file": "text/apollo-landing-site.vtt",
+    "bytes": 154,
+    "sha256": "a9681ba2c53033e11a22c28fc9ed7c99c11f627fd9e3756b4af036aa001c0aec",
+    "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004100/a004185/G2014-064_Apollo11_LandingSite.en_US.vtt",
+    "source": "https://svs.gsfc.nasa.gov/4185/",
+    "credit": "NASA Goddard SVS, Apollo 11 Landing Site (2014). Two video-caption cues: a mission-radio excerpt and music.",
+    "kind": "Original video captions"
+  },
+  {
+    "file": "text/landsat-machine-learning.srt",
+    "bytes": 20020,
+    "sha256": "90580c970c0b5a4b34407d45f6df1e06478b11ec9134801d1d72745012ef50e9",
+    "url": "https://svs.gsfc.nasa.gov/vis/a010000/a014300/a014336/LandsatAI.en_US.srt",
+    "source": "https://svs.gsfc.nasa.gov/14336/",
+    "credit": "NASA Scientific Visualization Studio. Same Landsat captions as the VTT in another format.",
+    "kind": "Original video captions"
+  },
+  {
+    "file": "text/landsat-machine-learning.txt",
+    "bytes": 10679,
+    "sha256": "11278be4acf49c0c49d057706a95629653a7e5ee3a725efd1d031a670b3d478f",
+    "source": "https://svs.gsfc.nasa.gov/14336/",
+    "credit": "NASA SVS captions with timing and cue markup removed."
+  },
+  {
+    "file": "text/landsat-machine-learning.vtt",
+    "bytes": 20033,
+    "sha256": "13545dab292bf30ac36b45bb09f220eaa48192e14cc951ede0dce09314eb065e",
+    "url": "https://svs.gsfc.nasa.gov/vis/a010000/a014300/a014336/LandsatAI.en_US.vtt",
+    "source": "https://svs.gsfc.nasa.gov/14336/",
+    "credit": "NASA Scientific Visualization Studio, From Orbit to A.I. - Harnessing Machine Learning with Landsat Data (2023). Original narration captions.",
+    "kind": "Original video captions"
+  },
+  {
+    "file": "text/nasa-ai-abstract.docx",
+    "bytes": 37859,
+    "sha256": "3a36fc6c849927f86c648fba45ba2fbc768b76afaf65f9c07c0cc4f07d9ade92",
+    "source": "https://ntrs.nasa.gov/citations/20190032627",
+    "credit": "NASA NTRS abstract, reformatted as Word. Not an original publisher DOCX."
+  },
+  {
+    "file": "text/nasa-ai-abstract.md",
+    "bytes": 2407,
+    "sha256": "550155cddacb2d05b70b96fe7d62aaaac5ea7dea65cf83d523117fdf30a40836",
+    "source": "https://ntrs.nasa.gov/citations/20190032627",
+    "credit": "NASA NTRS abstract, with line-break hyphenation repaired; formatted as Markdown. Not a new research paper."
+  },
+  {
+    "file": "text/nasa-ai-exploration.pdf",
+    "bytes": 6823606,
+    "sha256": "fdea78255ff3e11edbd0b701f261615313e3346a583f73a233f0fdd76c9d04dc",
+    "url": "https://ntrs.nasa.gov/api/citations/20190032627/downloads/20190032627.pdf",
+    "source": "https://ntrs.nasa.gov/citations/20190032627",
+    "credit": "Jeremy D. Frank, NASA Ames, Artificial Intelligence: Powering Human Exploration of the Moon and Mars (2019). NTRS: GOV_PUBLIC_USE_PERMITTED; no third-party material indicated.",
+    "kind": "Original research paper"
+  },
+  {
+    "file": "text/nasa-ai-exploration.txt",
+    "bytes": 42128,
+    "sha256": "26fed01007b3161d4c443a8587e9cd9910fb805dcfd1d9930c316959c0a686f3",
+    "url": "https://ntrs.nasa.gov/api/citations/20190032627/downloads/20190032627.txt",
+    "source": "https://ntrs.nasa.gov/citations/20190032627",
+    "credit": "NASA NTRS text extraction of the accompanying paper. Extraction may disturb columns and equations.",
+    "kind": "Publisher text extraction"
+  }
+]
