@@ -45,14 +45,63 @@ export function applyDisplayMode(mode, { documentRef = globalThis.document } = {
 export function bindDisplayMode({ documentRef = globalThis.document, storage = globalThis.localStorage } = {}) {
   const button = documentRef?.getElementById?.('displayModeBtn');
   let current = applyDisplayMode(readDisplayMode(storage), { documentRef });
+  let activeTransition;
+  let colorTimer;
+  const root = documentRef?.documentElement;
+  const view = documentRef?.defaultView;
+  const apply = () => applyDisplayMode(current, { documentRef });
+  const clearEffect = () => {
+    if (root?.dataset) delete root.dataset.modeTransition;
+  };
+
+  const transition = () => {
+    clearTimeout(colorTimer);
+    const reduceMotion = view?.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
+
+    // A second click should take effect immediately, not queue another animation.
+    if (activeTransition) {
+      activeTransition.skipTransition();
+      clearEffect();
+      apply();
+      return;
+    }
+    if (reduceMotion) {
+      clearEffect();
+      apply();
+      return;
+    }
+
+    if (typeof documentRef.startViewTransition === 'function') {
+      try {
+        if (root?.dataset) root.dataset.modeTransition = 'crossfade';
+        const effect = documentRef.startViewTransition(apply);
+        activeTransition = effect;
+        effect.ready.catch(() => {}); // Hidden tabs can skip the animation.
+        const finish = () => {
+          if (activeTransition === effect) {
+            activeTransition = undefined;
+            clearEffect();
+          }
+        };
+        effect.finished.then(finish, () => { apply(); finish(); });
+        return;
+      } catch {
+        clearEffect();
+      }
+    }
+
+    // Older browsers can still ease the surface and text colours.
+    if (root?.dataset) root.dataset.modeTransition = 'colors';
+    void root?.offsetWidth;
+    apply();
+    colorTimer = setTimeout(clearEffect, 500);
+  };
 
   if (!button || typeof button.addEventListener !== 'function') return current;
 
   button.addEventListener('click', () => {
-    current = applyDisplayMode(
-      current === DISPLAY_MODES.NIGHT ? DISPLAY_MODES.LIGHT : DISPLAY_MODES.NIGHT,
-      { documentRef },
-    );
+    current = current === DISPLAY_MODES.NIGHT ? DISPLAY_MODES.LIGHT : DISPLAY_MODES.NIGHT;
+    transition();
     try {
       safeStorage(storage)?.setItem(DISPLAY_MODE_STORAGE_KEY, current);
     } catch {
