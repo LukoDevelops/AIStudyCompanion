@@ -43,8 +43,7 @@ export function saveHistoryItem(result) {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(history));
     return { history, saved: true };
   } catch {
-    // Preserve existing storage and the in-memory result. Never silently prune
-    // older packs to squeeze a large new pack into an unknown browser quota.
+    // If storage is full, keep the current result and the packs already saved.
     return { history: loadHistory(), saved: false };
   }
 }

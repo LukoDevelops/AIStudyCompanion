@@ -17,7 +17,7 @@ Choose **Try an example** for a quick look, or add your own material and select 
 - Answer questions, retry missed ones, reveal flashcards and revisit weaker topics.
 - Save packs in this browser or export them as JSON and Markdown.
 
-Start with a small batch from [the space and AI sample library](samples/README.md). Its source credits distinguish original NASA material, format conversions and deliberately invalid test files.
+Start with a small batch from [the sample library](samples/README.md). Its source credits distinguish original NASA material, format conversions and deliberately invalid test files.
 
 ## Choose an engine
 

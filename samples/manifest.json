@@ -1,8 +1,8 @@
 [
   {
     "file": "README.md",
-    "bytes": 6045,
-    "sha256": "3499b084237269d20115ba55b4d03de31e4be3411b85153b9e19be0ff12702bf",
+    "bytes": 6457,
+    "sha256": "2e57763224802543cf0306e8e6d3c3457516bc20e907080eb48e8cf1a6616d26",
     "kind": "Library guide"
   },
   {
@@ -15,20 +15,20 @@
     "kind": "Original mission audio"
   },
   {
-    "file": "audio/apollo-landing-extended.mp3",
+    "file": "audio/apollo-landing-extended-16khz-mono.wav",
+    "bytes": 474044,
+    "sha256": "6b742ce6fe0eb532c5b9da7343ccabddb179d466a6ce5f1c4c0a99c52d305b3c",
+    "source": "https://www.nasa.gov/historical-sounds/",
+    "credit": "NASA Apollo 11 audio decoded to 16 kHz mono PCM WAV; same recording as the MP3."
+  },
+  {
+    "file": "audio/apollo-landing-extended-nasa.mp3",
     "bytes": 240687,
     "sha256": "e1c47957a46fced583e9d8b61a0c377f8ad46300137b0bfb59f9f3a95c836c51",
     "url": "https://www.nasa.gov/wp-content/uploads/2015/01/590333main_ringtone_eagleHasLanded_extended.mp3",
     "source": "https://www.nasa.gov/historical-sounds/",
     "credit": "NASA, Apollo 11 extended landing recording.",
     "kind": "Original mission audio"
-  },
-  {
-    "file": "audio/apollo-landing-extended.wav",
-    "bytes": 474044,
-    "sha256": "6b742ce6fe0eb532c5b9da7343ccabddb179d466a6ce5f1c4c0a99c52d305b3c",
-    "source": "https://www.nasa.gov/historical-sounds/",
-    "credit": "NASA Apollo 11 audio decoded to 16 kHz mono PCM WAV; same recording as the MP3."
   },
   {
     "file": "audio/kennedy-we-choose-the-moon.mp3",
@@ -56,27 +56,27 @@
     "credit": "NASA Apollo 11 excerpt repeated to 20 minutes. Artificial stress input, not a continuous mission recording."
   },
   {
-    "file": "edge-cases/corrupt.docx",
-    "bytes": 64,
-    "sha256": "d586f728b35953b2448563d87a7f24f4918ed4b6ca10bb1fcac44f6ff05c77da",
-    "kind": "Deliberate QA input; not source research"
-  },
-  {
-    "file": "edge-cases/corrupt.pdf",
+    "file": "edge-cases/corrupt-audio.wav",
     "bytes": 63,
-    "sha256": "ef7fe3259025677623e4e5b997cd6e56eb9259bdf69e88a2cbdc772c4bd21cc7",
+    "sha256": "14297797e48ccc38aabe4d9757627e490ccd6f18735c7eb2faca9693a66ed008",
     "kind": "Deliberate QA input; not source research"
   },
   {
-    "file": "edge-cases/corrupt.png",
+    "file": "edge-cases/corrupt-image.png",
     "bytes": 63,
     "sha256": "d56c1e612826b900312d7a6f50946301816e2d4929bcd7d27773397ff49ca599",
     "kind": "Deliberate QA input; not source research"
   },
   {
-    "file": "edge-cases/corrupt.wav",
+    "file": "edge-cases/corrupt-pdf.pdf",
     "bytes": 63,
-    "sha256": "14297797e48ccc38aabe4d9757627e490ccd6f18735c7eb2faca9693a66ed008",
+    "sha256": "ef7fe3259025677623e4e5b997cd6e56eb9259bdf69e88a2cbdc772c4bd21cc7",
+    "kind": "Deliberate QA input; not source research"
+  },
+  {
+    "file": "edge-cases/corrupt-word.docx",
+    "bytes": 64,
+    "sha256": "d586f728b35953b2448563d87a7f24f4918ed4b6ca10bb1fcac44f6ff05c77da",
     "kind": "Deliberate QA input; not source research"
   },
   {

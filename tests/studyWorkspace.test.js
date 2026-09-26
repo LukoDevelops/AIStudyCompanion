@@ -140,3 +140,16 @@ it('offers new flashcards from leftover source passages',()=>{
   renderWorkspace(rich,vi.fn(),keepOrder);click('[data-view="practice"]');click('[data-mode="cards"]');click('#newCards');
   expect(document.querySelector('#workspaceStatus').textContent).toMatch(/card|uncited|unused|enough/i);
 });
+
+it('distinguishes unreviewed box-1 cards from cards explicitly marked for another look',()=>{
+  const second={id:'r2',source:'Notes',index:2,sentence:'Ranking selects relevant passages from the supplied material.'};
+  const third={id:'r3',source:'Notes',index:3,sentence:'Evidence links connect an answer to its original source.'};
+  const rich={...pack,concepts:[...pack.concepts,{term:'Ranking',evidenceId:'r2'},{term:'Evidence',evidenceId:'r3'}],corpus:{sentenceRecords:[record,second,third]}};
+  renderWorkspace(rich,vi.fn(),keepOrder);click('[data-view="practice"]');click('[data-mode="cards"]');
+  click('#revealCard');click('[data-rating="again"]');
+  click('#revealCard');click('[data-rating="ready"]');
+  click('#reviewWeaker');
+  expect(document.querySelector('#workspaceStatus').textContent).toBe('Returned to the first box-1 card. 2 card(s) are in box 1, including any not reviewed yet.');
+  expect(document.querySelector('#practiceStage').textContent).toContain('1 card(s) marked for another look');
+  expect(document.querySelector('#practiceStage').textContent).toContain('CARD 1 OF 3');
+});

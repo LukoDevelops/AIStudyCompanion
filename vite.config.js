@@ -2,8 +2,6 @@ import { defineConfig } from "vite";
 
 export default defineConfig({
   root: ".",
-  // Relative asset paths let the same static build work on localhost and
-  // under a GitHub Pages project URL.
   base: "./",
   publicDir: "public",
   worker: { format: "es" },

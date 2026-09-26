@@ -10,7 +10,7 @@ import { parseWav } from "../scripts/sample-audio.mjs";
 const samples = resolve(dirname(fileURLToPath(import.meta.url)), "..", "samples");
 const pdfPath = join(samples, "text", "nasa-ai-exploration.pdf");
 const docxPath = join(samples, "text", "nasa-ai-abstract.docx");
-const wavPath = join(samples, "audio", "apollo-landing-extended.wav");
+const wavPath = join(samples, "audio", "apollo-landing-extended-16khz-mono.wav");
 
 
 async function pdfPages() {
@@ -36,7 +36,7 @@ async function pdfPages() {
   return pages;
 }
 
-describe("space and AI sample files", () => {
+describe("sample files", () => {
   it("produces a multi-page PDF whose text can be extracted", async () => {
     const pages = await pdfPages();
 

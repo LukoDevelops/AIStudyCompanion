@@ -37,8 +37,8 @@ describe('mixed sample library regressions',()=>{
     expect(pack.checks.integrity.issues).toEqual([]);
   });
   it('keeps usable text and reports corrupt Word files',async()=>{
-    const {sources,warnings}=await collectSources({textFiles:['edge-cases/corrupt.docx','text/nasa-ai-abstract.md'].map(file)});
-    expect(sources).toHaveLength(1);expect(warnings.join(' ')).toContain('corrupt.docx could not be read');
+    const {sources,warnings}=await collectSources({textFiles:['edge-cases/corrupt-word.docx','text/nasa-ai-abstract.md'].map(file)});
+    expect(sources).toHaveLength(1);expect(warnings.join(' ')).toContain('corrupt-word.docx could not be read');
   });
   it('reports empty files rather than silently dropping them',async()=>{
     const {sources,warnings}=await collectSources({textFiles:[file('edge-cases/empty.txt')]});

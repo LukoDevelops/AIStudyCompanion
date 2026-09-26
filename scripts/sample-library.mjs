@@ -32,18 +32,20 @@ if (process.argv.includes('--refresh')) {
   mkdirSync(dirname(metadataPath), {recursive:true});
   writeFileSync(metadataPath, await download('https://ntrs.nasa.gov/api/citations/20190032627'));
   execFileSync(process.env.SAMPLE_PYTHON || 'python', [join(root, 'scripts', 'sample-documents.py'), metadataPath], {stdio:'inherit'});
-  execFileSync(process.env.SAMPLE_FFMPEG || 'ffmpeg', ['-hide_banner','-loglevel','error','-y','-i',join(dest,'audio/apollo-landing-extended.mp3'),'-ar','16000','-ac','1','-c:a','pcm_s16le',join(dest,'audio/apollo-landing-extended.wav')], {stdio:'inherit'});
+  execFileSync(process.env.SAMPLE_FFMPEG || 'ffmpeg', ['-hide_banner','-loglevel','error','-y','-i',join(dest,'audio/apollo-landing-extended-nasa.mp3'),'-ar','16000','-ac','1','-c:a','pcm_s16le',join(dest,'audio/apollo-landing-extended-16khz-mono.wav')], {stdio:'inherit'});
   for (const name of ['apollo-landing-site','landsat-machine-learning']) {
     const captions = readFileSync(join(dest,`text/${name}.vtt`),'utf8');
     const transcript = captions.split(/\r?\n/).filter(line => line.trim() && !/^(WEBVTT|\d+$|\d\d:.*-->)/.test(line)).join(' ').replace(/<[^>]+>/g, '');
     put(`text/${name}.txt`, transcript + '\n');
   }
   put('edge-cases/empty.txt', '');
-  for (const ext of ['pdf','docx','wav','png']) put(`edge-cases/corrupt.${ext}`, `Damaged mission file: intentionally not a valid ${ext.toUpperCase()} container.\n`);
+  for (const [name, ext] of [['corrupt-pdf.pdf','pdf'],['corrupt-word.docx','docx'],['corrupt-audio.wav','wav'],['corrupt-image.png','png']]) {
+    put(`edge-cases/${name}`, `Damaged mission file: intentionally not a valid ${ext.toUpperCase()} container.\n`);
+  }
   put('edge-cases/oversized-text.txt', 'Repeated space mission telemetry for a size-limit check, not scientific observations.\n'.repeat(8000));
   put('edge-cases/negation-and-unicode.txt', 'Space mission QA exercise — invented values, not NASA mission data.\nThe sensor reads 18 °C, not 28 °C. An alert does not prove a spacecraft fault. The signal increased from 40% to 60%, a change of 20 percentage points. The spacecraft did not detect water.\n');
   put('edge-cases/silence.wav', pcmWav(Buffer.alloc(16000 * 2 * 3)));
-  const {format, data} = parseWav(bytes('audio/apollo-landing-extended.wav'));
+  const {format, data} = parseWav(bytes('audio/apollo-landing-extended-16khz-mono.wav'));
   const repeated = Buffer.alloc(format.sampleRate * format.channels * 2 * 1200);
   for (let offset = 0; offset < repeated.length; offset += data.length) data.copy(repeated, offset);
   put('edge-cases/apollo-repeated-20min.wav', pcmWav(repeated, format.sampleRate, format.channels));
@@ -54,7 +56,7 @@ const derived = {
   'text/nasa-ai-abstract.docx': {source:'https://ntrs.nasa.gov/citations/20190032627', credit:'NASA NTRS abstract, reformatted as Word. Not an original publisher DOCX.'},
   'text/apollo-landing-site.txt': {source:'https://svs.gsfc.nasa.gov/4185/', credit:'NASA SVS captions with timing and cue markup removed.'},
   'text/landsat-machine-learning.txt': {source:'https://svs.gsfc.nasa.gov/14336/', credit:'NASA SVS captions with timing and cue markup removed.'},
-  'audio/apollo-landing-extended.wav': {source:'https://www.nasa.gov/historical-sounds/', credit:'NASA Apollo 11 audio decoded to 16 kHz mono PCM WAV; same recording as the MP3.'},
+  'audio/apollo-landing-extended-16khz-mono.wav': {source:'https://www.nasa.gov/historical-sounds/', credit:'NASA Apollo 11 audio decoded to 16 kHz mono PCM WAV; same recording as the MP3.'},
   'edge-cases/apollo-repeated-20min.wav': {source:'https://www.nasa.gov/historical-sounds/', credit:'NASA Apollo 11 excerpt repeated to 20 minutes. Artificial stress input, not a continuous mission recording.'},
 };
 const walk = (dir, prefix = '') => readdirSync(dir,{withFileTypes:true}).flatMap(entry => entry.isDirectory() ? walk(join(dir,entry.name),prefix+entry.name+'/') : [prefix+entry.name]);

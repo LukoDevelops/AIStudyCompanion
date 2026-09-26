@@ -44,7 +44,7 @@ function gradientDefs(count, prefix) {
   }).join("");
 }
 
-// Keep the public name for callers; HTML labels remain readable without SVG scaling.
+// Keep this export name for existing callers. HTML labels stay readable at any size.
 export function barChartSvg(items, options = {}) {
   const { mode = "count" } = options;
   if (!items?.length) return '<p class="muted">No data yet</p>';
@@ -175,7 +175,7 @@ export function conceptGraphSvg(concepts, edges, options = {}) {
       rank: concept.pageRank || 0,
     };
   });
-  // External label rails prevent long concepts colliding with neighbouring nodes.
+  // Put long labels outside the chart so they do not overlap nearby nodes.
   for (const left of [true, false]) {
     const side = nodes.filter(node => (node.x < cx) === left).sort((a,b) => a.y-b.y);
     side.forEach((node, index) => {

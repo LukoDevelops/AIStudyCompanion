@@ -353,7 +353,7 @@ export function renderWorkspace(pack, onEvidence, options = {}) {
     stage.querySelector('#reviewWeaker')?.addEventListener('click',()=>{
       flashIndex=weaker[0] ?? 0;
       flashRevealed=false;
-      setDeskStatus(`Showing ${weaker.length} card(s) that you marked for another look.`);
+      setDeskStatus(`Returned to the first box-1 card. ${weaker.length} card(s) are in box 1, including any not reviewed yet.`);
       persistProgress('practice');
       renderCard();
     });

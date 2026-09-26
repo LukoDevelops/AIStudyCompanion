@@ -11,8 +11,7 @@ function percent(value) {
 }
 
 /**
- * Builds a compact, explainable health report for the generated study pack.
- * It measures traceability and study readiness, not factual correctness.
+ * Show whether the pack is easy to trace and study. This is not a fact check.
  */
 export function buildStudyAudit(pack, { practice = {}, cardsReviewed = 0 } = {}) {
   const coverage = clamp(pack?.analytics?.coverage?.coveragePct ?? pack?.checks?.coveragePct ?? 0);

@@ -20,6 +20,15 @@ function pack(overrides = {}) {
 describe('study plan', () => {
   it('summarises the input modalities without treating them as accuracy scores', () => {
     expect(modalitySummary(pack())).toMatchObject({ text: 1, audio: 1, image: 1, total: 3 });
+    expect(modalitySummary(pack({ corpus: { sources: [
+      { origin: 'pdf', adapter: 'text' },
+      { origin: 'docx', adapter: 'text' },
+      { origin: 'transcript-file', adapter: 'audio-paste' },
+      { origin: 'paste', adapter: 'audio-paste' },
+      { origin: 'paste', adapter: 'image-paste' },
+      { origin: 'image', adapter: 'vision' },
+      {},
+    ] } }))).toEqual({ text: 2, audio: 2, image: 2, other: 1, total: 7 });
   });
 
   it('produces a transparent readiness score from pack checks and practice state', () => {

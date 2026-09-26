@@ -48,7 +48,7 @@ function isUsefulTerm(term) {
     return false;
   }
 
-  // OCR and transcripts repeat themselves, which produced concepts like "pros pros".
+  // Skip repeated phrases such as "pros pros".
   if (words.length === 2 && words[0] === words[1]) {
     return false;
   }

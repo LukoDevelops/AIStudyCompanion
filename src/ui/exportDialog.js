@@ -1,6 +1,6 @@
 import { downloadBlob } from '../export/download.js';
 
-/** Native modal keeps keyboard focus inside; textContent/value never render source HTML. */
+/** The dialog keeps keyboard focus inside and displays source content as plain text. */
 export function showExport(content, format) {
   document.getElementById('exportDialog')?.remove();
   const previousFocus = document.activeElement;

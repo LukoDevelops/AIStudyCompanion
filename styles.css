@@ -4017,7 +4017,7 @@ body[data-display-mode="night"] .flashcard [data-rating="ready"]:hover:not(:disa
     background: #2f7b6e;
 }
 
-@media (max-width: 720px) {
+@media (max-width: 1000px) {
     .workspace-nav-item::part(label) { gap: 8px; }
     sl-button-group.workspace-nav::part(base) {
         grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -4028,9 +4028,17 @@ body[data-display-mode="night"] .flashcard [data-rating="ready"]:hover:not(:disa
 
 @media (max-width: 520px) {
     sl-button-group.workspace-nav::part(base) {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 4px;
         padding: 4px;
     }
+    sl-button.workspace-nav-item::part(base) { padding-inline: 6px; }
+    .workspace-nav-item::part(label) { gap: 5px; }
+}
+
+@media (max-width: 360px) {
+    .workspace-nav-item::part(label) { flex-direction: column; gap: 3px; }
+    sl-button.workspace-nav-item::part(base) { min-height: 58px; }
 }
 
 /* Final night-mode refinement: utility controls should read as part of the

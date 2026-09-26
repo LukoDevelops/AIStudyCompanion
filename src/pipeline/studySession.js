@@ -41,7 +41,7 @@ export function brierScore(attempts) {
   }, 0) / rated.length;
 }
 
-// Practice statistics are serialisable for local resume, not a measure of educational effectiveness.
+// Save practice counts to resume later; they do not measure learning.
 export function practiceItemKey(item) {
   return `${item?.evidenceId || ''}|${String(item?.question || '').normalize('NFKC').replace(/\s+/g, ' ').trim().toLowerCase()}`;
 }

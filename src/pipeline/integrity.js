@@ -1,4 +1,4 @@
-// Structural provenance checks, deliberately not a claim of semantic truth.
+// Check links and structure here, not whether the content is true.
 const normalize = value => String(value ?? '').normalize('NFKC').replace(/\s+/g, ' ').trim().toLowerCase();
 const percent = (part, total) => total ? Math.round(part / total * 100) : 0;
 

@@ -11,8 +11,7 @@ async function loadMammoth() {
 }
 
 /**
- * Mammoth returns markdown-flavoured text, which keeps heading and list markers
- * that the document normaliser already understands.
+ * Mammoth keeps headings and lists as Markdown, which our parser already handles.
  */
 export async function extractDocxText(file) {
   const mammoth = await loadMammoth();

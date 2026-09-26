@@ -23,8 +23,11 @@ export function modalitySummary(pack) {
 
   sources.forEach((source) => {
     const origin = String(source?.origin || '').toLowerCase();
-    if (origin.includes('vision') || origin === 'ocr' || origin === 'image') counts.image += 1;
-    else if (origin.includes('audio') || origin === 'whisper' || origin === 'transcript') counts.audio += 1;
+    const adapter = String(source?.adapter || '').toLowerCase();
+    if (adapter === 'image-paste' || adapter === 'vision' || adapter === 'ocr'
+      || origin.includes('vision') || origin === 'ocr' || origin === 'image') counts.image += 1;
+    else if (adapter === 'audio-paste' || adapter === 'whisper'
+      || origin.includes('audio') || origin === 'whisper' || origin.startsWith('transcript')) counts.audio += 1;
     else if (origin) counts.text += 1;
     else counts.other += 1;
   });

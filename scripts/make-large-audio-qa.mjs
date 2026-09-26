@@ -1,7 +1,7 @@
 import {readFileSync,writeFileSync,mkdtempSync} from 'node:fs';
 import {tmpdir} from 'node:os';
 import {join} from 'node:path';
-const wav=readFileSync(new URL('../samples/audio/apollo-landing-extended.wav',import.meta.url));
+const wav=readFileSync(new URL('../samples/audio/apollo-landing-extended-16khz-mono.wav',import.meta.url));
 const output=Buffer.alloc(64*1024**2);
 wav.copy(output);
 output.write('JUNK',wav.length);

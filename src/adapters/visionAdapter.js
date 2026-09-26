@@ -56,15 +56,17 @@ async function loadCaptioner(onStatus) {
   return captionerPromise;
 }
 
-/** Tier one: OCR with word confidence and column-aware reading order. */
+/** First, read any text in the image. */
 export async function readImageText(file, onStatus = () => {}) {
   const tesseract = await loadTesseract(onStatus);
   onStatus(`Reading text from ${file.name} on this device…`);
 
   let data = null;
+  // Tesseract rejects the request; this prevents a second, uncaught worker error.
+  const workerOptions = { errorHandler: () => {} };
 
   try {
-    const worker = await tesseract.createWorker("eng");
+    const worker = await tesseract.createWorker("eng", 1, workerOptions);
 
     try {
       const result = await worker.recognize(file, {}, { blocks: true, text: true });
@@ -73,7 +75,7 @@ export async function readImageText(file, onStatus = () => {}) {
       await worker.terminate();
     }
   } catch {
-    const result = await tesseract.recognize(file, "eng");
+    const result = await tesseract.recognize(file, "eng", workerOptions);
     data = result?.data || null;
   }
 
@@ -87,7 +89,7 @@ export async function readImageText(file, onStatus = () => {}) {
   };
 }
 
-/** Tier two: a real local vision model that describes the picture itself. */
+/** Then use a local model to describe the picture. */
 export async function captionImage(file, onStatus = () => {}) {
   const captioner = await loadCaptioner(onStatus);
   onStatus(`Describing ${file.name} with the local image model…`);
@@ -120,7 +122,7 @@ async function fileToBase64(file) {
   return btoa(binary);
 }
 
-/** Tier three: optional cloud vision, only when the learner supplies a key. */
+/** Cloud vision is optional and needs the learner's key. */
 export async function describeImageWithCloud(file, key, onStatus = () => {}) {
   const token = normalise(key);
 
@@ -166,8 +168,7 @@ export async function describeImageWithCloud(file, key, onStatus = () => {}) {
 }
 
 /**
- * Runs the tiers that are available and reports which ones actually produced
- * text, so the interface never implies a model ran when it did not.
+ * Report only the steps that actually returned text.
  */
 export async function describeImage(file, options = {}) {
   const {
@@ -179,6 +180,15 @@ export async function describeImage(file, options = {}) {
 
   if (requireCloud && !normalise(cloudKey)) {
     throw new Error("Cloud vision is selected, but no free cloud-model key was provided.");
+  }
+
+  if (typeof createImageBitmap === 'function') {
+    try {
+      const bitmap = await createImageBitmap(file);
+      bitmap.close();
+    } catch {
+      throw new Error('The image data could not be decoded');
+    }
   }
 
   const parts = [];
@@ -203,7 +213,7 @@ export async function describeImage(file, options = {}) {
     }
   } catch (error) {
     tesseractPromise = null;
-      warnings.push(`We could not read text from ${file.name} with OCR (${error.message}).`);
+      warnings.push(`We could not read text from ${file.name} with OCR (${error?.message || String(error)}).`);
   }
 
   if (requireCloud || cloudKey) {
