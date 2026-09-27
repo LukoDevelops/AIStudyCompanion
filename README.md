@@ -2,7 +2,7 @@
 
 Turn notes, recordings and images into a revision pack you can check against its sources. Read a summary, practice with questions and flashcards, explore connected ideas, and open the passage behind an answer.
 
-[Open the app](https://lukodevelops.github.io/AIStudyCompanion/) · [Final report (PDF)](AIStudyCompanionFinalReport.pdf) · [How the study workspace works](docs/STUDY_WORKSPACE.md)
+[Open the app](https://lukodevelops.github.io/AIStudyCompanion/) · [Final report (PDF)](AIStudyCompanionFinalReport.pdf) · [How the study workspace works](docs/STUDY_WORKSPACE.md) · [Watch the demo (MP4)](AIStudyCompanionDemo.mp4)
 
 [![CI](https://github.com/LukoDevelops/AIStudyCompanion/actions/workflows/ci.yml/badge.svg)](https://github.com/LukoDevelops/AIStudyCompanion/actions/workflows/ci.yml)
 
